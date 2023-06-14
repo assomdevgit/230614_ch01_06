@@ -57,12 +57,27 @@ print(d2.zfill(4))
 
 ### 메소드 체이닝
 # -> 문자열을 변형시키는 메소드 -> 결과물 문자열 -> 자기 자신에게 계속 변화를 시킬 수 있음.
+# 메소드를 줄줄이 연결한다고 해서 메소드 체이닝(method chaining)
+t = "      hello world         "
+print(t.strip())
+print(t.strip().upper())
+print(t.strip().upper().replace("WORLD", "EARTH"))
+print(t.strip().upper().replace("WORLD", "EARTH").split()) # split() -> 리스트니까 안됨...
+print(";".join(t.strip().upper().replace("WORLD", "EARTH").split()))
+print(";".join(t.strip().upper().replace("WORLD", "EARTH").split()).lower())
 
 # 문자열 위치 찾기 & 갯수 세기
-# -> 리스트.index(...)
-# --> 문자열.find(...)
+# -> 리스트.index(...) => value의 인덱스를 찾음.
+# -> 문자열.find(...) -> 텍스트 in 문자열 -> 한 글자가 아니더라도 부분문자열을 찾을 수 있게
 t = "아메리카노"
+print(t.find("메")) # 인덱스 개념
+print(list(t).index("메"))
+print(t.find("리카")) # -> find를 사용해줘야 한다
+# print(list(t).index("리카"))  # ValueError: '리카' is not in list
+t2 = "리카리카리카"
+print(t2.find("리카"))  # 맨 앞쪽.
 
-## 믄지얄 개수 세기
-print(t.count("카"))
+## 문자열 개수 세기
+print(t2.count("카"))
+print("찐찐찐찐찐이야 완전 찐이야".count("찐"))
 
